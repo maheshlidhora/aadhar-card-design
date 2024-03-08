@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .box{
+            height: 300px;
+            width: 500px;
+            border: 1px solid transparent;
+            margin: 200px auto;
+            /* padding: 0px 6.5px 0px 6.5px; */
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            border-radius: 18px;
+            box-shadow: 3px 3px 8px gray;
+        }
+        .adharHead{
+            height: 60px;
+            width: 100%;
+            border: 1px solid transparent;
+            background-image: url(./AdharLogo.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0px 80px;
+            margin-bottom: 5px;
+        }
+        #userImg{
+            height: 120px;
+            width: 105px;
+            border: 1px solid transparent;
+            display: inline-block;
+            background-image: url(./user.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #userInfo{
+            display: inline-block;
+            height: 120px;
+            width: 250px;
+            border: 1px solid transparent;
+            vertical-align: top;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 20px;
+        }
+        #userQR{
+            width: 120px;
+            height: 120px;
+            border: 1px solid transparent;
+            display: inline-block;
+            background-image: url(./QR.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .adharNo{
+            height: 55px;
+            width: 100%;
+            border: 1px solid transparent;
+            text-align: center;
+            line-height: 55px;
+        }
+        .adharFooter{
+            height: 55px;
+            width: 100%;
+            border-top: 3px solid red;
+            text-align: center;
+            line-height: 55px;
+        }
+        .footText{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        #footText1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="adharHead" id="adharHead"></div>
+        <div id="userImg"></div>
+        <div id="userInfo">
+            <p id="userName">USER NAME</p>
+            <p id="userDob">USER DOB</p>
+            <p id="userGender">USER GENDER</p>
+            <p id="useraddress">USER ADDRESS</p>
+        </div>
+        <div class="userQR" id="userQR"></div>
+        <div class="adharNo"><h1 id="adharNo">0000 0000 0000</h1></div>
+        <div class="adharFooter" id="adharFooter">
+            <span class="footText" id="footText1">आधार </span>
+            <span class="footText" id="footText2">- आम आदमी का अधिकार</span>
+        </div>
+    </div>
+
+    <script>
+        let inputUser=prompt("Enter Name")
+        let i = document.getElementById("userImg");
+        let n = document.getElementById("userName");
+        let d = document.getElementById("userDob");
+        let g = document.getElementById("userGender");
+        let a = document.getElementById("useraddress");
+        let an= document.getElementById("adharNo");
+        let prom = new Promise((res,rej)=>{
+            let arr=[
+                {name:"Mahesh Prajapati", dob:"25-04-1998", gender:"Male", address:"Ward No 06, Lidhora, Madhya Pradesh", adharNo:"6838 9615 0981", img:"./1.jpg"},
+                {name:"Amit Prajapati", dob:"02-02-2000", gender:"Male", address:"Ward No 06, Lidhora, Madhya Pradesh", adharNo:"6548 9854 1826", img:"./2.jpg"},
+                {name:"Vaibhavi Ghormare", dob:"14-08-1998", gender:"Female", address:"MANIT Squre, Bhopal, Madhya Pradesh", adharNo:"7450 6379 0251", img:"./3.jpg"},
+                {name:"Jay", dob:"29-03-1997", gender:"Male", address:"Shivaji Nagar, Bhopal, Madhya Pradesh", adharNo:"9361 0527 9361", img:"./4.jpg"},
+                {name:"Vijay", dob:"02-05-1995", gender:"Male", address:"Sadar Bajaar, Jhansi, Uttar Pradesh", adharNo:"7204 0173 7561", img:"./5.jpg"},
+                {name:"Ajay", dob:"13-04-1991", gender:"Male", address:"Shipri Bajaar, Jhansi, Uttar Pradesh", adharNo:"5017 9369 1010", img:"./6.jpg"},
+                {name:"Digvijay", dob:"07-06-1990", gender:"Male", address:"Gandhi Nagar, Jabalpur, Madhya Pradesh", adharNo:"0462 9168 0273", img:"./7.jpg"},
+                {name:"Jaya", dob:"18-12-1995", gender:"Female", address:"Daani Limda, Ahemdabad, Gujraat", adharNo:"6384 9253 0152", img:"./8.jpg"},
+                {name:"Rahul", dob:"24-02-2000", gender:"Male", address:"Polytechnic Square, Bhopal, Madhya Pradesh", adharNo:"5490 9461 8471", img:"./9.jpg"},
+                {name:"Kapil", dob:"17-04-1999", gender:"Male", address:"Professor Colony, Bhopal, Madhya Pradesh", adharNo:"9648 6172 9644", img:"./10.jpg"},
+                {name:"Karan", dob:"20-11-1998", gender:"Male", address:"Anad Nagar, Bhopal, Madhya Pradesh", adharNo:"0751 2569 0964", img:"./11.jpg"},
+                {name:"Savita", dob:"19-09-1996", gender:"Female", address:"Patrkaar Colony, Bhopal, Madhya Pradesh", adharNo:"7441 6592 2285", img:"./12.jpg"},
+                {name:"Sanjay", dob:"11-07-1997", gender:"Male", address:"Kali Nagar, Vidisha, Madhya Pradesh", adharNo:"6491 9452 1662", img:"./13.jpg"},
+            ];
+            setTimeout(()=>{
+                for (let i = 0; i<arr.length; i++) 
+                {
+                    if (arr[i].name==inputUser) 
+                    {
+                        res(arr[i]);
+                    }
+                    // WE HAVE TO WRITE THE REJECT CONDITION OUTOF THE FOR LOOP>
+                    // else
+                    // {
+                    //     rej();
+                    // }
+                }
+                rej();
+            },1000)
+        })
+        prom.then((responce)=>{
+            // console.log(responce);
+            i.style.backgroundImage=`url(${responce.img})`;
+            n.innerHTML=`${responce.name}`;
+            d.innerHTML=`${responce.dob}`;
+            g.innerHTML=`${responce.gender}`;
+            a.innerHTML=`${responce.address}`;
+            an.innerHTML=`${responce.adharNo}`;
+        }).catch(()=>{
+            alert("User is not Found in Adhar Portal.")
+        })
+    </script>
+    
+</body>
+</html>
